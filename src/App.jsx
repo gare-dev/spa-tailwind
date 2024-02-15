@@ -16,10 +16,10 @@ class App extends Component {
 
                     <div className="flex items-center space-x-4 pr-16">
                         <NavLink to="/login">
-                            <button className="rounded-xl border bg-white py-1 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Login</button>
+                            <button className="rounded-xl border bg-white py-1 px-4 focus:outline-none hover:bg-slate-300">Login</button>
                         </NavLink>
                         <NavLink to="/signup">
-                            <button className="rounded-xl  border bg-white py-1 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Sign-up</button>
+                            <button className="rounded-xl  border bg-white py-1 px-4 focus:outline-none hover:bg-slate-300 ">Sign-up</button>
                         </NavLink>
                     </div>
 
