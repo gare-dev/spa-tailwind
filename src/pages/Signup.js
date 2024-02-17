@@ -1,34 +1,101 @@
 import React, { Component } from "react";
-import gut from "../img/gut.jpg";
 import style from "../style.css";
+import { Route, NavLink, Routes } from "react-router-dom";
+import Login from "./Login"
 
 class Signup extends Component {
-  render() {
-    return (
-        <div id="container">
-      <div className="py-3 px-8 max-w-sm mx-auto bg-blue-400 rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
-        <img
-          src={gut}
-          alt=""
-          class="block mx-auto h-24 w-24 rounded-full sm:mx-0 sm:shrink-0"
-        />
 
-        <div className="text-center space-y-2 sm:text-left">
-          <div className="space-y-1">
-            <p className="text-lg text-black font-semibold">Gutemberg</p>
-            <p className="text-slate-500 font-medium">Jogador profissional</p>
-          </div>
-          <button className="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">
-            Contratar
-          </button>
-        </div>
-      </div>
+  componentDidMount () {
 
+    const password = document.getElementById("password");
+    const email = document.getElementById("email");
+    const button = document.getElementById("sendButton");
+
+    function verify () {
 
       
+    }
 
 
-</div>
+
+
+  }
+  render() {
+    return (
+      <div className="">
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+
+      <div className="flex bg-transparent  backdrop-blur-md border mx-auto max-w-sm rounded-xl py-10 flex-col">
+        <form id="form" className="flex flex-col mx-auto space-y-10">
+          <div className="">
+            <div className="flex flex-col space-y-5">
+              <label className="block">
+                <span className="block text-sm font-medium text-slate-900">
+                  Nome:
+                </span>
+                <input
+                  required
+                  id="user"
+                  type="text"
+                  className="placeholder-black focus:border-white  mt-1 w-64 px-3 py-2 bg-transparent text-sm outline-none border-b-2 border-gray-500 border-solid transition ease-linear focus:-translate-y-1"
+                />
+              </label>
+
+              <label className="block">
+                <span className="block text-sm font-medium text-slate-900">
+                  Email:
+                </span>
+                <input
+                  required
+                  id="email"
+                  type="email"
+                  className="placeholder-black focus:border-white  mt-1 w-64 px-3 py-2 bg-transparent text-sm outline-none border-b-2 border-gray-500 border-solid transition ease-linear focus:-translate-y-1"
+                />
+              </label>
+
+              <label className="block">
+                <span className="block text-sm font-medium text-slate-900">
+                  Senha:
+                </span>
+                <input
+                  required
+                  id="password"
+                  type="password"
+                  className="placeholder-black focus:border-white mt-1 w-64 px-3 py-2 bg-transparent text-sm outline-none border-b-2 border-gray-500 border-solid transition ease-linear focus:-translate-y-1"
+                />
+              </label>
+            </div>
+          </div>
+
+          <div className="flex flex-col space-y-5">
+            <button
+              id="sendButton"
+              disabled
+              className="bg-white shadow-xl mx-auto rounded-xl h-12 w-24 trans"
+            >
+              Entrar
+            </button>
+
+            <h5 className="mx-auto text-slate-900">
+              Já tem uma conta?{" "}
+              <NavLink
+                className="text-blue-100 hover:text-blue-500"
+                to="/login">
+                Entrar.
+              </NavLink>
+            </h5>
+          </div>
+        </form>
+      </div>
+
+      <Routes>
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </div>
     );
   }
 }
