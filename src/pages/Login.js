@@ -92,7 +92,7 @@ class Login extends Component {
                 </div>
 
                 <Routes>
-                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/signup/*" element={<Signup />} />
                 </Routes>
             </div>
         );

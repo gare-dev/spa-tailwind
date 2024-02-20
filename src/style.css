@@ -24,3 +24,7 @@ html {
 
 
 }
+
+.hidden {
+    display: none;
+}
