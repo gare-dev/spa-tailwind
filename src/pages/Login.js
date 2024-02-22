@@ -21,7 +21,7 @@ class Login extends Component {
                     button.setAttribute('disabled', true);
                 }
 
-            }
+            } 
 
             )
         });
@@ -48,6 +48,7 @@ class Login extends Component {
                                         Email:
                                     </span>
                                     <input
+                                        autoComplete="true"
                                         required
                                         id="email"
                                         type="email"
@@ -60,6 +61,7 @@ class Login extends Component {
                                         Senha:
                                     </span>
                                     <input
+                                        autoComplete="true"
                                         required
                                         id="password"
                                         type="password"

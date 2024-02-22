@@ -1,36 +1,62 @@
 import React, { Component } from "react";
 
 class Config extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isMobile: window.innerWidth <= 768,
-            showButtons: false 
-        };
-        this.toggleMenuVisibility = this.toggleMenuVisibility.bind(this);
-        this.toggleButtonsVisibility = this.toggleButtonsVisibility.bind(this);
-    }
 
     componentDidMount() {
-        window.addEventListener('resize', this.toggleMenuVisibility);
-    }
 
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.toggleMenuVisibility);
-    }
+        const bt1 = document.getElementById('bt1');
+        const bt2 = document.getElementById('bt2');
+        const bt3 = document.getElementById('bt3');
 
-    toggleMenuVisibility() {
-        this.setState({ isMobile: window.innerWidth <= 768 });
-    }
+        const list1 = document.getElementById('list1');
 
-    toggleButtonsVisibility() {
-        this.setState(prevState => ({
-            showButtons: !prevState.showButtons
-        }));
+        const list = document.getElementById('list');
+
+        let isClicked = false;
+
+
+
+        [list].forEach(item => {
+            item.addEventListener("click", () => {
+
+                if (item.click && isClicked === false) {
+
+                    bt1.removeAttribute('hidden');
+                    bt2.removeAttribute('hidden');
+                    bt3.removeAttribute('hidden');
+                    
+                    isClicked = true;
+                }
+                else if (item.click && isClicked === true) {
+                    bt1.setAttribute('hidden', true);
+                    bt2.setAttribute('hidden', true);
+                    bt3.setAttribute('hidden', true);
+
+                    isClicked = false
+
+                }
+
+            }
+
+            )
+        });
+
+        /*     [list1].forEach(item3 => {
+                 item3.addEventListener("", () => {
+        
+                     bt1.setAttribute('hidden', true);
+                     bt2.setAttribute('hidden', true);
+                     bt3.setAttribute('hidden', true);
+        
+                 })
+             });
+        
+        */
+
+
     }
 
     render() {
-        const { isMobile, showButtons } = this.state;
 
         return (
             <div>
@@ -41,32 +67,31 @@ class Config extends Component {
                     <br></br>
                 </div>
                 <div id="" className="">
-                    <table>
+                    <table id="list1">
                         <tbody>
                             <tr>
-                                <td id="list">
-                                    <button onClick={this.toggleButtonsVisibility} className="rounded-xl border bg-white py-1 px-4 focus:outline-none hover:bg-slate-300">O</button>
+                                <td className="p-0" id="list">
+                                    <button className=" border bg-white py-1 px-4 focus:outline-none hover:bg-slate-300">O</button>
                                 </td>
                             </tr>
-                            {showButtons && (
-                                <>
-                                    <tr>
-                                        <td id="bt1">
-                                            <button className={`rounded-xl border bg-white py-1 px-4 focus:outline-none hover:bg-slate-300`}>Botao 1</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td id="bt2">
-                                            <button className={`rounded-xl border bg-white py-1 px-4 focus:outline-none hover:bg-slate-300`}>Botao 2</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td id="bt3">
-                                            <button className={`rounded-xl border bg-white py-1 px-4 focus:outline-none hover:bg-slate-300`}>Botao 3</button>
-                                        </td>
-                                    </tr>
-                                </>
-                            )}
+
+                            <tr>
+                                <td className="p-0" hidden id="bt1">
+                                    <button id="signup" className={` bg-white py-1 p-0 px-4 hover:bg-slate-300`}>Botao 1</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="p-0" hidden id="bt2">
+                                    <button id="login" className={` bg-white py-1 px-4 hover:bg-slate-300`}>Botao 2</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="p-0" hidden id="bt3">
+                                    <button id="config" className={` bg-white py-1 px-4 hover:bg-slate-300`}>Botao 3</button>
+                                </td>
+                            </tr>
+
+
                         </tbody>
                     </table>
                 </div>

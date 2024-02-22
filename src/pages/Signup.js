@@ -3,7 +3,7 @@ import style from "../style.css";
 import { Route, NavLink, Routes } from "react-router-dom";
 import Login from "./Login";
 
-class Signup extends Component {  
+class Signup extends Component {
 
   verify = () => {
     let passwordValue = document.getElementById("password").value;
@@ -64,6 +64,7 @@ class Signup extends Component {
                     Nome:
                   </span>
                   <input
+                    autoComplete="true"
                     required
                     id="user"
                     type="text"
@@ -76,6 +77,7 @@ class Signup extends Component {
                     Email:
                   </span>
                   <input
+                    autoComplete="true"
                     required
                     id="email"
                     type="email"
@@ -88,6 +90,7 @@ class Signup extends Component {
                     Senha:
                   </span>
                   <input
+                    autoComplete="true"
                     required
                     id="password"
                     type="password"
@@ -101,7 +104,7 @@ class Signup extends Component {
               <button
                 id="sendButton"
                 disabled
-                
+
                 className="bg-white shadow-xl mx-auto rounded-xl h-12 w-24 trans"
               >
                 Entrar
