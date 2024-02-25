@@ -32,31 +32,70 @@ class App extends Component {
         const td1 = document.getElementById('td1');
         const td2 = document.getElementById('td2');
         const td3 = document.getElementById('td3');
-        const listBt = document.getElementById('buttonBg');
+        const td0Bt = document.getElementById('td0Bt');
+
+        const td1Bt = document.getElementById('td1Bt');
 
 
         td1.setAttribute('hidden', true);
         td2.setAttribute('hidden', true);
         td3.setAttribute('hidden', true);
 
+        td0Bt.classList.add('rounded-xl');
+
+        [td0Bt].forEach((item) => {
+
+            item.classList.remove('bg-transparent');
+            item.classList.remove('text-transparent');
+            item.classList.add('hover:bg-slate-300');
+            item.classList.remove('cursor-default');
+
+        });
+
+
+
     };
 
-    handleMenuButtonClick = () => {
+    openTable = () => {
         const td1 = document.getElementById('td1');
         const td2 = document.getElementById('td2');
         const td3 = document.getElementById('td3');
-        const td0 = document.getElementById('td0');
+        const td0Bt = document.getElementById('td0Bt');
 
-        const listBt = document.getElementById('buttonBg');
+        const td1Bt = document.getElementById('td1Bt')
 
-        const header = document.getElementById('headerPlace');
+        td1.removeAttribute('hidden');
+        td2.removeAttribute('hidden');
+        td3.removeAttribute('hidden');
+
+
+        [td0Bt].forEach((item) => {
+
+
+        item.classList.remove('rounded-xl');
+        item.classList.add('bg-transparent');
+        item.classList.add('text-transparent');
+        item.classList.remove('hover:bg-slate-300');
+        item.classList.add('cursor-default');
+        
+        });
+
+
+        
+
+
+        
+    };
+
+    handleMenuButtonClick = () => {
+
+        const td1 = document.getElementById('td1');
+
+
 
         if (td1.hasAttribute('hidden')) {
             // Se estiver fechado, abre
-            td1.removeAttribute('hidden');
-            td2.removeAttribute('hidden');
-            td3.removeAttribute('hidden');
-
+            this.openTable();
         } else {
             // Se estiver aberto, fecha
             this.closeTable();
@@ -75,30 +114,30 @@ class App extends Component {
                         <table id="tableList" className="">
                             <tbody className="rounded-xl">
 
-                             
+
 
                                 <tr>
                                     <td id="td0" className="p-0">
-                                        <button id="" className=" bg-white h-10 w-full focus:outline-none hover:bg-slate-300" onClick={this.handleMenuButtonClick}>Menu</button>
+                                        <button id="td0Bt" className=" bg-white py-1 px-4 h-10 w-full rounded-xl focus:outline-none hover:bg-slate-300" onClick={this.handleMenuButtonClick}>Menu</button>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td id="td1" hidden className="p-0">
-                                        <button className=" bg-white py-1 px-4 focus:outline-none w-full hover:bg-slate-300"> <NavLink to="/config">Configurações</NavLink></button>
+                                        <button id="" className=" bg-white py-1 px-4 h-10 focus:outline-none w-full rounded-tl-md rounded-tr-md hover:bg-slate-300"> <NavLink to="/config">Configurações</NavLink></button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td id="td2" hidden className="p-0">
                                         <NavLink to="/login">
-                                            <button className=" bg-white py-1 px-4 focus:outline-none w-full hover:bg-slate-300">Entrar</button>
+                                            <button className=" bg-white py-1 px-4 h-10 focus:outline-none w-full hover:bg-slate-300">Entrar</button>
                                         </NavLink>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td id="td3" hidden className="p-0">
                                         <NavLink to="/signup">
-                                            <button id="btSignup" className=" bg-white py-1 px-4 focus:outline-none w-full hover:bg-slate-300 ">Registrar-se</button>
+                                            <button id="btSignup" className=" bg-white py-1 px-4 h-10 rounded-bl-md rounded-br-md focus:outline-none w-full hover:bg-slate-300 ">Registrar-se</button>
                                         </NavLink>
                                     </td>
                                 </tr>
